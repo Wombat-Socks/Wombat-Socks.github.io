@@ -9,6 +9,25 @@ const REPO_URL = 'https://github.com/Wombat-Socks/Wombat-Socks.github.io';
 // (see privacy.html); swap this one line for a Google Form / mailto if preferred.
 const FEEDBACK_URL = `${REPO_URL}/issues/new?title=${encodeURIComponent('Feedback: ')}`;
 
+// How-it-works demo video. Paste the YouTube or Vimeo *watch/share* URL here — the
+// helper below turns it into the right embeddable player URL. Leave '' to hide it.
+const HOW_TO_VIDEO_URL = 'https://youtu.be/7YrIdtEjNeI';
+
+// Turn a YouTube/Vimeo share URL into its player-embed URL. Returns null if it
+// isn't a recognised link (so we just don't render the video).
+function videoEmbedUrl(url: string): string | null {
+  const yt = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);
+  if (yt) {
+    // rel=0 keeps end-of-video suggestions to *your own* channel (YouTube removed
+    // the option to hide them entirely in 2018); modestbranding/iv_load_policy trim
+    // the rest of the chrome and on-video annotations.
+    return `https://www.youtube-nocookie.com/embed/${yt[1]}?rel=0&modestbranding=1&iv_load_policy=3`;
+  }
+  const vimeo = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+  if (vimeo) return `https://player.vimeo.com/video/${vimeo[1]}`;
+  return null;
+}
+
 function NavBar({ variant }: { variant: number }) {
   return (
     <header className="navbar">
@@ -100,6 +119,17 @@ function App() {
               </li>
             ))}
           </ol>
+          {videoEmbedUrl(HOW_TO_VIDEO_URL) && (
+            <div className="video-embed">
+              <iframe
+                src={videoEmbedUrl(HOW_TO_VIDEO_URL)!}
+                title="Wombat Socks — how it works"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+          )}
         </section>
 
         <section className="feedback" id="feedback">

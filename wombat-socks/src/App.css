@@ -266,6 +266,23 @@
   color: var(--ink);
 }
 
+.video-embed {
+  margin-top: 28px;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #000;
+}
+
+.video-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
 /* ---- Feedback ---- */
 .feedback {
   max-width: var(--maxw);

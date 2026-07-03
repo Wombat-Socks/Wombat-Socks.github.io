@@ -2,3 +2,6 @@
 .vscode/
 .DS_Store
 **/.DS_Store
+
+# large local source recordings (host video externally)
+*.mov
