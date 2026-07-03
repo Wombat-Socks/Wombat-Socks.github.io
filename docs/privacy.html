@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Privacy Policy — Wombat Socks</title>
+    <link rel="icon" href="wombat_1_favicon.ico" sizes="any" />
+    <style>
+      :root {
+        --bg: #f7f1e6;
+        --surface: #fffdf8;
+        --ink: #33271d;
+        --muted: #8a7357;
+        --line: #e7dcc9;
+        --brand: #7a4a2e;
+        --accent-ink: #386a8c;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 16px/1.65 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+      .page { max-width: 720px; margin: 0 auto; padding: 48px 20px 72px; }
+      .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--brand); margin-bottom: 24px; }
+      .brand img { height: 40px; width: auto; }
+      .brand span { font: 700 22px Georgia, serif; }
+      h1 { font-family: Georgia, serif; color: var(--brand); font-size: clamp(26px, 5vw, 36px); margin: 0 0 4px; }
+      .updated { color: var(--muted); font-size: 14px; margin: 0 0 28px; }
+      h2 { font-family: Georgia, serif; color: var(--brand); font-size: 20px; margin: 32px 0 8px; }
+      a { color: var(--accent-ink); }
+      ul { padding-left: 20px; }
+      .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 4px 24px 20px; margin-top: 16px; }
+      .back { display: inline-block; margin-top: 32px; color: var(--accent-ink); text-decoration: none; font-size: 14px; }
+      footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <a class="brand" href="/">
+        <img src="wombat_1_android-chrome-192x192.png" alt="" />
+        <span>Wombat Socks</span>
+      </a>
+
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: 1 July 2026</p>
+
+      <p>
+        Wombat Socks is a browser extension that helps you turn recipe links into a
+        Queen Victoria Market (<a href="https://qvm.com.au/" target="_blank" rel="noopener noreferrer">qvm.com.au</a>)
+        shopping cart. This policy explains what the extension does with your data.
+        In short: <strong>it runs entirely in your browser, and we do not collect,
+        store, transmit, or sell any of your data.</strong>
+      </p>
+
+      <div class="card">
+        <h2>We have no servers and collect nothing</h2>
+        <p>
+          There is no Wombat Socks backend. The extension has no account system, no
+          analytics, and no tracking. Nothing you enter or do is sent to us or to any
+          third party under our control. We never see your recipes, your shopping,
+          your QVM account, or your identity.
+        </p>
+
+        <h2>What the extension accesses, and why</h2>
+        <ul>
+          <li><strong>Recipe links you paste</strong> — fetched directly from the recipe
+            website so the extension can read the ingredient list from that page. These
+            requests are made <em>without cookies</em>.</li>
+          <li><strong>Queen Victoria Market (qvm.com.au)</strong> — the extension searches
+            the QVM shop for matching products (prices and vendors) and, when you choose to,
+            adds the items you approve to your QVM cart.</li>
+          <li><strong>Your QVM cart / session</strong> — adding to cart runs inside a
+            qvm.com.au tab using your existing QVM session, exactly as if you added the
+            item yourself. The extension does <em>not</em> read, store, or transmit your
+            QVM login, password, or personal details. It works with or without a QVM
+            account.</li>
+        </ul>
+        <p>
+          All of this happens locally in your browser and only while you are using the
+          extension. Ingredient and product data lives in memory during a session and is
+          discarded when you close the popup — it is not persisted.
+        </p>
+
+        <h2>Permissions</h2>
+        <ul>
+          <li><strong>Host access</strong> — to fetch the recipe pages you provide and to
+            reach the QVM shop.</li>
+          <li><strong>Scripting &amp; tabs</strong> — to add your approved items to your
+            open QVM cart tab.</li>
+        </ul>
+        <p>These permissions are used solely for the features described above.</p>
+
+        <h2>Third parties</h2>
+        <p>
+          When you use the extension, your browser communicates directly with the recipe
+          websites you paste and with qvm.com.au. Those sites have their own privacy
+          policies. We do not add any tracking or advertising, and we share nothing with
+          anyone.
+        </p>
+
+        <h2>Changes</h2>
+        <p>
+          If this policy changes, the updated version will be posted on this page with a
+          new date above.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions? Open an issue on the
+          <a href="https://github.com/Wombat-Socks/Wombat-Socks.github.io" target="_blank" rel="noopener noreferrer">project repository</a>.
+        </p>
+      </div>
+
+      <a class="back" href="/">← Back to Wombat Socks</a>
+      <footer>🧦 Wombat Socks™</footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+# https://www.robotstxt.org/robotstxt.html
+# Block all crawlers from the entire site.
+User-agent: *
+Disallow: /

@@ -1,0 +1,408 @@
+:root {
+  /* ---- Palette sampled from the two wombat icons ----
+     Shared: warm brown fur on a cream backdrop, dark line-art.
+     Wombat 1: blue socks (#6090b0) with yellow trim (#f0d850).
+     Wombat 2: slate-indigo boots (#484060). */
+  --bg: #f7f1e6;       /* warm cream (the wombats' backdrop) */
+  --surface: #fffdf8;
+  --ink: #33271d;      /* dark warm brown (line-art) — body text */
+  --muted: #8a7357;    /* muted fur brown */
+  --line: #e7dcc9;     /* warm hairline */
+
+  /* Wombat fur */
+  --brand: #7a4a2e;      /* deep fur brown — brand + headings */
+  --fur: #9c6547;        /* mid fur */
+  --fur-light: #c88050;  /* fur highlight */
+
+  /* Wombat 1 socks — primary accent */
+  --accent: #4a83a8;      /* sock blue — links, active nav, borders */
+  --accent-ink: #386a8c;  /* deeper blue — text/hover, primary button */
+  --accent-deep: #2d5773; /* darkest blue — button hover */
+  --gold: #e9c531;        /* sock-trim yellow — highlights */
+  --gold-ink: #a8850a;    /* readable yellow on cream */
+
+  /* Wombat 2 boots — dark sections */
+  --deep: #45405e;        /* slate indigo — footer */
+  --deep-ink: #cfc9df;    /* light text on slate */
+
+  --font-heading: Georgia, 'Times New Roman', serif;
+  --fs-title: clamp(26px, 5vw, 40px);
+  --fs-body: 16px;
+  --fs-label: 13px;
+  --lh-body: 1.6;
+  --ls-label: 0.14em;
+  --maxw: 960px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  color: var(--ink);
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.site-footer {
+  flex-shrink: 0;
+}
+
+/* ---- Top nav bar: brand left, links right ---- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px clamp(20px, 5vw, 48px);
+  background: rgba(247, 242, 234, 0.92);
+  backdrop-filter: saturate(1.1) blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--brand);
+}
+
+.brand-mark {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.brand-text {
+  font-family: var(--font-heading);
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 4vw, 36px);
+}
+
+.nav-links a {
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent-ink);
+  border-bottom-color: var(--accent);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 4vw, 28px);
+}
+
+/* The "Add to Chrome" button sits in the nav — slightly tighter than a page CTA. */
+.nav-cta {
+  padding: 8px 16px;
+}
+
+/* ---- Hero / header ---- */
+.hero {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(56px, 10vw, 104px) clamp(20px, 5vw, 48px) clamp(32px, 6vw, 56px);
+}
+
+.hero-eyebrow {
+  margin: 0 0 12px;
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+
+.hero-title {
+  margin: 0 0 20px;
+  font-family: var(--font-heading);
+  font-size: var(--fs-title);
+  line-height: 1.15;
+  color: var(--brand);
+}
+
+.hero-lede {
+  margin: 0 0 32px;
+  font-size: clamp(16px, 2.4vw, 19px);
+  color: var(--ink);
+}
+
+.hero-lede a {
+  color: var(--accent-ink);
+  text-decoration: underline;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.1s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--accent-ink);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-deep);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--brand);
+  border: 1px solid var(--line);
+}
+
+.btn-ghost:hover {
+  border-color: var(--brand);
+}
+
+.btn.big {
+  padding: 15px 30px;
+  font-size: 14px;
+}
+
+.hero-note {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---- How it works ---- */
+.how {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(32px, 6vw, 64px) clamp(20px, 5vw, 48px);
+}
+
+.section-title {
+  margin: 0 0 24px;
+  font-family: var(--font-heading);
+  font-size: var(--fs-title);
+  color: var(--brand);
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.step {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.step-n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--accent-ink);
+  color: #fff;
+  font-weight: 700;
+}
+
+.step h3 {
+  margin: 14px 0 6px;
+  font-size: 17px;
+  color: var(--brand);
+}
+
+.step p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+/* ---- Feedback ---- */
+.feedback {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(32px, 6vw, 64px) clamp(20px, 5vw, 48px);
+  text-align: center;
+}
+
+.feedback-lede {
+  margin: 0 auto 22px;
+  max-width: 560px;
+  color: var(--ink);
+}
+
+.feedback-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* ---- Closing CTA band ---- */
+.cta-band {
+  text-align: center;
+  padding: clamp(40px, 8vw, 80px) 20px;
+}
+
+.cta-band h2 {
+  margin: 0 0 22px;
+  font-family: var(--font-heading);
+  font-size: var(--fs-title);
+  color: var(--brand);
+}
+
+/* ---- Simple inner pages ---- */
+.page {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 48px);
+}
+
+.page-title {
+  margin: 0 0 16px;
+  font-family: var(--font-heading);
+  font-size: var(--fs-title);
+  color: var(--brand);
+}
+
+.page-lede {
+  margin: 0 0 16px;
+  max-width: 640px;
+  color: var(--ink);
+}
+
+.page-note {
+  color: var(--muted);
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 32px clamp(20px, 5vw, 48px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.footer-links a {
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--accent-ink);
+}
+
+.copyright {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--brand);
+}
+
+.footer-logo {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.footer-repo {
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-repo:hover {
+  color: var(--accent-ink);
+}
+
+.made-in {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.made-in .heart {
+  color: var(--accent-ink);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 520px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .nav-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
