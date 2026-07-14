@@ -11,7 +11,7 @@ const FEEDBACK_URL = `${REPO_URL}/issues/new?title=${encodeURIComponent('Feedbac
 
 // How-it-works demo video. Paste the YouTube or Vimeo *watch/share* URL here — the
 // helper below turns it into the right embeddable player URL. Leave '' to hide it.
-const HOW_TO_VIDEO_URL = 'https://youtu.be/7YrIdtEjNeI';
+const HOW_TO_VIDEO_URL = 'https://youtu.be/eSaN2XvjwIs';
 
 // Turn a YouTube/Vimeo share URL into its player-embed URL. Returns null if it
 // isn't a recognised link (so we just don't render the video).
